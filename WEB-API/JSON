@@ -2,6 +2,7 @@ JSON
 JavaScript Object Notation
 데이터를 저장하고 교환하는 데 사용되는 경량 데이터 교환 형식
 
+
 자바스크립트 객체 표기법과 JSON 문법의 차이
 1. JSON에서는 각 프로퍼티의 이름을 반드시 큰따옴표("바보")로 감싸야함
 2. JSON에서는 값이 문자열인 경우 큰따옴표("바보")를 사용해야 합니다.
@@ -9,3 +10,15 @@ JavaScript Object Notation
 JSON에서는 undefined, NaN, Infinity 등을 사용할 수 없음
 
 JSON에는 주석 사용 X
+
+
+JSON 객체를 자바스크립트로 사용하는 방법 -> 자바스크립트로 변환해주는 JSON.parse 사용하기
+fetch("https://www.google.com")
+  .then((response) => response.text())
+  .then((result) => {
+    const users = JSON.parse(result);
+    console.log(users.length);
+    users.forEach((user)=>{
+        console.log(user.name)
+    });
+  });
