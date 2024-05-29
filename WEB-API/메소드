@@ -1,0 +1,48 @@
+Request 종류 4가지 / 메소드로 판별
+
+- 데이터 조회 - GET - READ
+- 데이터 추가 - POST - CREATE
+- 데이터 수정 - PUT - UPDATE
+- 데이터 삭제 - DELETE - DELETE
+
+
+Request  구조
+
+- Head - 메소드는 여기 있음
+- Body - Get, Delete 는 필요 없는 부분
+
+
+1.1버전 - 헤드 표현
+GET /men/shirts HTTP/1.1
+
+2버전 - 헤드 표현
+:method: GET
+:path: /men/
+
+
+GET, PUT, DELETE - 직원의 정보를 특정할 수 있도록 URL 끝에 고유 식별자를 붙여야한다(직원의 id 값)
+GET, POST - 전체 직원 대상이므로 id  필요 없음
+
+
+- GET
+fetch('https://learn.codeit.kr/api/members/3')
+  .then((response) => response.text())
+  .then((result) => { console.log(result); });
+
+
+- POST > fetch함수의 두 번째 값에 옵션 객체를 넣어줌
+const newMember = {
+    name: 'soohyun',
+    email: 'abc123@naver.com'
+    department: 'doctor'
+}
+
+fetch('https://learn.codeit.kr/api/members/3', {
+    method: 'POST',
+    body: JSON.stringify(newMember),
+})
+  .then((response) => response.text())
+  .then((result) => { console.log(result); });
+
+JSON.parse : JSON을 JS로 변환
+JSON.stringify: JS을 JSON으로 변환
