@@ -12,14 +12,13 @@ const newMember = {
 fetch("https://learn.codeit.kr/api/members", {
   method: "POST",
   body: JSON.stringify(newMember),
-});
-
-//3 JSON -> JS
-.then(() => {
-    fetch('https://learn.codeit.kr/api/members')
-    .then((response)=>response.text())
-    .then((result)=>{
+})
+  //3 JSON -> JS
+  .then(() => {
+    fetch("https://learn.codeit.kr/api/members")
+      .then((response) => response.text())
+      .then((result) => {
         const members = JSON.parse(result);
-        console.log(members[members.length-1]);s
-    })
-});
+        console.log(members[members.length - 1]);
+      });
+  });
