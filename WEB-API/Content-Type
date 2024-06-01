@@ -1,0 +1,48 @@
+Content-Type 헤더
+현재 리퀘스트 또는 리스폰스의 바디에 들어 있는 데이터가 어떤 타입인지를 나타냄
+Content-Type 헤더의 값은 '주 타입(main type)/서브 타입(sub type)'의 형식으로 나타남
+
+주 타입이 text인 경우(텍스트)
+일반 텍스트 : text/plain
+CSS 코드 : text/css
+HTML 코드 : text/html
+JavaScript 코드 : text/javascript ...
+
+주 타입이 image인 경우(이미지)
+image/bmp : bmp 이미지
+image/gif : gif 이미지
+image/png : png 이미지 ...
+
+주 타입이 audio인 경우(오디오)
+audio/mp4 : mp4 오디오
+audio/ogg : ogg 오디오 ...
+
+주 타입이 video인 경우(비디오)
+video/mp4 : mp4 비디오
+video/H264 : H264 비디오 ...
+
+주 타입이 application인 경우
+application/json : JSON 데이터
+application/octet-stream : 확인되지 않은 바이너리 파일 ... 이게 뭘까?
+
+바이너리 파일: 0과 1의 조합이 우리가 읽을 수 있는 텍스트 파일 이외의 파일들 (예: 이미지 파일)
+
+const newMember = {
+  name: 'Jerry',
+  email: 'jerry@codeit.kr',
+  department: 'engineering',
+};
+
+fetch('https://learn.codeit.kr/api/members', {
+  method: 'POST',
+  headers: { // 추가된 부분
+    'Content-Type': 'application/json', //타입을 미리 알려줘서 불필요한 비용 줄임
+  },
+  body: JSON.stringify(newMember),
+})
+  .then((response) => response.text())
+  .then((result) => { console.log(result); });
+
+장기적인 목표
+(1) fetch 함수의 옵션 객체 안에 headers 프로퍼티를 설정하고
+(2) headers 객체 안에 더 많은 헤더 이름들을 추가하기
