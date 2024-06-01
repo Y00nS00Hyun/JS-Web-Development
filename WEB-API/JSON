@@ -88,6 +88,25 @@ Response 확인하면 무슨 일이 일어나는지도 알 수 있음
 
 
 REST API: 가이드라인
+
   - REST architecture: 웹이 갖추어야 할 이상적인 아키텍처(구조)
-  REST란? Representational State Transfer(표현적인 상태 이전)
-  ㄴ 휴식인줄~
+    REST란? Representational State Transfer(표현적인 상태 이전) -> 휴식인줄~
+
+  - REST architecture 조건 6가지
+    1. Client-Server / 구조를 독립적으로 운영
+    2. Stateless / 매 리퀘스트를 독립적으로 취급 -> 항상 필요한 모든 정보를 담아서 보내라
+    3. Cache / 네트워크 비용 절감
+    4. Uniform Interface 
+      1)  identification of resources: 리소스를 url로 식별할 수 있어야함
+      2)  manipulation of resources through representations: 리소스를 다루는게 아니라 리소스 표현을 다뤄야함 
+      3)  self-descriptive messages: 매 리퀘스트마다 필요한 모든 정보를 담아서 전송해야하고, Client의 리퀘스트와 Server의 리스폰스 모두 그 자체에 있는 정보만으로 모든 것을 해석할 수 있어야 함
+      4)  hypermedia as the engine of application state: 리스폰스에는 리소스의 표현, 각종 메타 정보들뿐만 아니라 계속 새로운 상태로 넘어갈 수 있도록 해주는 링크들도 포함되어 있어야 함
+      왜냐면 웹은 분산 하이퍼미디어 시스템 이기 때문
+    5. Layered System / Client와 Server 사이에는 프록시(proxy), 게이트웨이(gateway)와 같은 중간 매개 요소를 두고, 보안, 로드 밸런싱 등을 수행할 수 있어야 함
+      계층형 층 형성(hierarchical layers)
+    6. Code on Demand / 부가적인 조건 (필수 X)
+
+    REST API는 바로 이런 REST architecture에 부합하는 API 임!
+
+    이 중 제일 중요한 것은 4-1 identificaton of resources 이다
+    리소스(resource): 웹상에 존재하는 데이터
