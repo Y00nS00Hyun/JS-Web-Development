@@ -22,3 +22,62 @@ fetch("https://www.google.com")
         console.log(user.name)
     });
   });
+
+POST 리퀘스트를 헤드와 바디는 어떻게 생겼을까?
+
+개발자도구의 Network 탭을 확인하기 → Headers 확인
+
+Response 확인하면 무슨 일이 일어나는지도 알 수 있음
+
+- PUT: 정보 수정하기
+    
+    ```json
+    fetch("https://www.google.com/2",{
+    method: 'PUT',
+    body: JSON.stringihy(member),
+    })
+      .then((response) => response.text())
+      .then((result) => { console.log(result);});
+    ```
+    
+
+- DELETE: 정보 삭제하기 // body 필요 없음
+    
+    ```json
+    fetch("https://www.google.com/2",{
+    method: 'DELETE',
+    })
+      .then((response) => response.text())
+      .then((result) => { console.log(result);});
+    ```
+    
+
+중요한 점
+
+- 어느 URL로 리퀘스트를 보내는지
+- 무슨 메소드가 헤드로 설정되어있는지 (get, post, put, delete)
+
+무슨 리스폰스를 받는지는 어떻게 설계되는걸까?
+
+- Wed API
+    - 개발자에는 두 종류가 있다 - 프론트엔드(URL로 리퀘스트를 보냄), 백엔드(리스폰스를 보내줌) →Wed API 설계: 서비스에서 사용될 모든 URL을 나열하고, 각각의 URL에 관한 예상 리퀘스트와 리스폰스의 내용을 정리
+    - **Web API는 어떻게 설계해도 동작하는 데는 아무런 지장이 없다**
+    ex) 직원의 정보를 추가하는 2가지 방법
+        
+        ```json
+        회사 1
+        
+        (1) 'https://learn.codeit.kr/api/members' URL로   
+        (2) 리퀘스트의 헤드에 POST 메소드를 설정하고,
+        (3) 리퀘스트의 바디에 새 직원 정보를 넣어서 보내면 된다
+        ```
+        
+        ```json
+        회사 2
+        
+        (1) 'https://learn.codeit.kr/api/members' URL로
+        (2) 리퀘스트의 헤더에 GET 메소드를 설정하고,
+        (3) 리퀘스트의 바디에 새 직원 정보를 넣어서 보내면 된다
+        ```
+        
+        → REST API에 따
