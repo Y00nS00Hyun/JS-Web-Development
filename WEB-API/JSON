@@ -32,6 +32,10 @@ Response 확인하면 무슨 일이 일어나는지도 알 수 있음
 - PUT: 정보 수정하기
     
     ```json
+    member = {
+      어쩌고~ 수정된 내용
+    }
+
     fetch("https://www.google.com/2",{
     method: 'PUT',
     body: JSON.stringihy(member),
@@ -80,4 +84,10 @@ Response 확인하면 무슨 일이 일어나는지도 알 수 있음
         (3) 리퀘스트의 바디에 새 직원 정보를 넣어서 보내면 된다
         ```
         
-        → REST API에 따
+        → REST API를 기준으로 잘 설계되었는지 볼 수 있음
+
+
+REST API: 가이드라인
+  - REST architecture: 웹이 갖추어야 할 이상적인 아키텍처(구조)
+  REST란? Representational State Transfer(표현적인 상태 이전)
+  ㄴ 휴식인줄~
