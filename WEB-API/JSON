@@ -38,7 +38,7 @@ Response 확인하면 무슨 일이 일어나는지도 알 수 있음
 
     fetch("https://www.google.com/2",{
     method: 'PUT',
-    body: JSON.stringihy(member),
+    body: JSON.stringify(member),
     })
       .then((response) => response.text())
       .then((result) => { console.log(result);});
