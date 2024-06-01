@@ -48,7 +48,7 @@ Response 확인하면 무슨 일이 일어나는지도 알 수 있음
 - DELETE: 정보 삭제하기 // body 필요 없음
     
     ```json
-    fetch("https://www.google.com/2",{
+    fetch("https://www.googsle.com/2",{
     method: 'DELETE',
     })
       .then((response) => response.text())
