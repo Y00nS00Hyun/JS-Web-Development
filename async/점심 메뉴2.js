@@ -16,19 +16,17 @@ function pick(menus) {
 
 async function getRandomMenu() {
   console.log("---Please wait!---");
-  const response = await fetch("https://learn.codeit.kr/api/menus");
-  const result = await response.text();
-  const menus = JSON.parse(result);
-  return pick(menus); // ! random pick function
+  try {
+    const response = await fetch("https://learn.codeit.kr/api/menus");
+    const result = await response.text();
+    const menus = await JSON.parse(result);
+    const menu = await pick(menus); // ! random pick function
+    console.log(`Today's lunch is ${menu.name}~`);
+  } catch (error) {
+    console.log(error.message);
+  } finally {
+    console.log("Random Menu candidates change everyday");
+  }
 }
 
-getRandomMenu()
-  .then((menu) => {
-    console.log(`Today's lunch is ${menu.name}~`);
-  })
-  .catch((error) => {
-    console.log(error.message);
-  })
-  .finally(() => {
-    console.log("Random Menu candidates change everyday");
-  });
+getRandomMenu();
