@@ -14,14 +14,12 @@ function pick(menus) {
   return p;
 }
 
-function getRandomMenu() {
+async function getRandomMenu() {
   console.log("---Please wait!---");
-  return fetch("https://learn.codeit.kr/api/menus")
-    .then((response) => response.text())
-    .then((result) => {
-      const menus = JSON.parse(result);
-      return pick(menus); // ! random pick function
-    });
+  const response = await fetch("https://learn.codeit.kr/api/menus");
+  const result = await response.text();
+  const menus = JSON.parse(result);
+  return pick(menus); // ! random pick function
 }
 
 getRandomMenu()
